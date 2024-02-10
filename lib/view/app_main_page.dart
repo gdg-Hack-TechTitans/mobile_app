@@ -32,9 +32,9 @@ class _AppMainPageState extends State<AppMainPage> {
                 children:  [
                   Home(),
                   LostThings(),
-                  (prefs!.getString("userType") == 'monter') ? Mentors() :MentorsNotification(),
+                  (prefs!.getString("userType") == 'ihgjdsihg') ? Mentors() :MentorsNotification(),
                   // NewsAppHomePage(),
-                  // NewsAppListPage(),
+                  // NewsAppListPage()
                 ],
               ),
             ),
