@@ -41,8 +41,10 @@ class Login extends StatelessWidget {
                       Container(
                         width: 300.0,
                         child: TextFormField(
+                          
                           controller: controller.usernameController,
                           decoration: InputDecoration(
+                            
                             contentPadding: EdgeInsets.symmetric(vertical: 10),
                             // Adjust vertical padding
                             prefixIcon: Icon(Icons.person_outline_rounded),
@@ -58,6 +60,9 @@ class Login extends StatelessWidget {
                               borderRadius: BorderRadius.all(Radius.zero),
                             ),
                           ),
+                          style: TextStyle(
+                            color: Colors.white, // Set text color to white
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -66,7 +71,12 @@ class Login extends StatelessWidget {
                       Container(
                         width: 300.0,
                         child: TextFormField(
+                          style: TextStyle(
+                            color: Colors.white, 
+                            // Set text color to white
+                          ),
                           controller: controller.passwordController,
+                          keyboardType: TextInputType.visiblePassword,
                           decoration: InputDecoration(
                             prefixIcon: Icon(Icons.lock_outline_rounded),
                             labelText: "PASSWORD",
@@ -82,7 +92,7 @@ class Login extends StatelessWidget {
                             ),
                             contentPadding: EdgeInsets.symmetric(
                                 vertical: 10), // Adjust vertical padding
-                          ),
+                          ),      
                         ),
                       ),
                       SizedBox(
@@ -98,9 +108,10 @@ class Login extends StatelessWidget {
                               prefs!.setString(
                                   "userType", controller.userType.value);
                               print("${prefs!.getString('userType')}");
-                            }
-                            ;
-                            print(controller.isAuthenticated);
+                            }else{
+                               Get.snackbar("dev mode(backend not completed)", "the auth is not completed in  the backend so for login {username :yasser,password:yasser} also i am defining that user as participant and to see the mentor pages change {userType.value = 'participant';} in login_controller.dart line 28 to { userType.value = 'mentor'} ",colorText: Colors.white,duration: Duration(seconds: 10),);
+                          }
+                            
                           },
                           child: Text(
                             "LOGIN",

@@ -1,3 +1,4 @@
+import 'package:event_manager/controllers/hackathon_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
@@ -7,7 +8,8 @@ import 'login.dart';
 
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+   Home({super.key});
+  HackathonController controller = Get.put(HackathonController());
 
   @override
   Widget build(BuildContext context) {return Column(
@@ -149,9 +151,9 @@ class Home extends StatelessWidget {
               ),
               SizedBox(
                 height: 360,
-                child: ListView.builder(
+                child: Obx(() => ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 10,
+                  itemCount: controller.hackathons.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
@@ -170,7 +172,7 @@ class Home extends StatelessWidget {
                             ClipRRect(
                               borderRadius: BorderRadius.circular(8),
                               child: Image.network(
-                                "https://www.gdgalgiers.com/_next/image?url=%2FeventsLogo%2Fdevfest21.png&w=3840&q=75"  ,
+                                "${controller.hackathons[index].thumbnail}"  ,
                                 fit: BoxFit.cover,
                                 width: double.infinity,
                                 height: 200,
@@ -179,8 +181,8 @@ class Home extends StatelessWidget {
                             const SizedBox(
                               height: 8,
                             ),
-                            const Text(
-                              "Hackathon description Name Date and Time Hackathon description Name Date and Time Hackathon description Name Date and Time",
+                             Text(
+                              "${controller.hackathons[index].name}",
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -191,8 +193,8 @@ class Home extends StatelessWidget {
                             const SizedBox(
                               height: 8,
                             ),
-                            const Text(
-                              "Dream Walker - 3h ago",
+                             Text(
+                              "${controller.hackathons[index].date.toString()}",
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey,
@@ -204,7 +206,7 @@ class Home extends StatelessWidget {
                     );
                   },
                 ),
-              )
+              ))
             ],
           ),
         ),

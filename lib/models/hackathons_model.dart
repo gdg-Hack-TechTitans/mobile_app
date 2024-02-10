@@ -38,7 +38,7 @@ class Hackathon {
 
 static Future<List<Hackathon>> fetchHackathons() async {
   final response = await http.get(
-      Uri.parse('https://hackathon-portal.herokuapp.com/hackathons'));
+      Uri.parse('https://ghach-rest-api.onrender.com/v1/events'));
   if (response.statusCode == 200) {
     List<Hackathon> hackathons = [];
     for (var json in jsonDecode(response.body)) {
@@ -52,7 +52,7 @@ static Future<List<Hackathon>> fetchHackathons() async {
 
   static Future<Hackathon> fetchHackathon(int id) async {
     final response = await http.get(
-        Uri.parse('https://hackathon-portal.herokuapp.com/hackathons/$id'));
+        Uri.parse('https://ghach-rest-api.onrender.com/v1/events/$id'));
     if (response.statusCode == 200) {
       return Hackathon.fromJson(jsonDecode(response.body));
     } else {
@@ -60,40 +60,40 @@ static Future<List<Hackathon>> fetchHackathons() async {
     }
   }
 
-  static Future<void> createHackathon(Hackathon hackathon) async {
-    final response = await http.post(
-      Uri.parse('https://hackathon-portal.herokuapp.com/hackathons'),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: hackathon.toJson(),
-    );
-    if (response.statusCode != 201) {
-      throw Exception('Failed to create hackathon');
-    }
-  }
+  // static Future<void> createHackathon(Hackathon hackathon) async {
+  //   final response = await http.post(
+  //     Uri.parse('https://ghach-rest-api.onrender.com/v1/events'),
+  //     headers: <String, String>{
+  //       'Content-Type': 'application/json; charset=UTF-8',
+  //     },
+  //     body: hackathon.toJson(),
+  //   );
+  //   if (response.statusCode != 201) {
+  //     throw Exception('Failed to create hackathon');
+  //   }
+  // }
 
-  static Future<void> updateHackathon(Hackathon hackathon) async {
-    final response = await http.put(
-      Uri.parse(
-          'https://hackathon-portal.herokuapp.com/hackathons/${hackathon.id}'),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: hackathon.toJson(),
-    );
-    if (response.statusCode != 200) {
-      throw Exception('Failed to update hackathon');
-    }
-  }
+  // static Future<void> updateHackathon(Hackathon hackathon) async {
+  //   final response = await http.put(
+  //     Uri.parse(
+  //         'https://hackathon-portal.herokuapp.com/hackathons/${hackathon.id}'),
+  //     headers: <String, String>{
+  //       'Content-Type': 'application/json; charset=UTF-8',
+  //     },
+  //     body: hackathon.toJson(),
+  //   );
+  //   if (response.statusCode != 200) {
+  //     throw Exception('Failed to update hackathon');
+  //   }
+  // }
 
-  static Future<void> deleteHackathon(int id) async {
-    final response = await http.delete(
-        Uri.parse('https://hackathon-portal.herokuapp.com/hackathons/$id'));
-    if (response.statusCode != 204) {
-      throw Exception('Failed to delete hackathon');
-    }
-  }
+  // static Future<void> deleteHackathon(int id) async {
+  //   final response = await http.delete(
+  //       Uri.parse('https://hackathon-portal.herokuapp.com/hackathons/$id'));
+  //   if (response.statusCode != 204) {
+  //     throw Exception('Failed to delete hackathon');
+  //   }
+  // }
 
   Map<String, dynamic> toJson() {
     return {

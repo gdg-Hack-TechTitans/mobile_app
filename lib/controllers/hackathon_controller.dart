@@ -14,6 +14,7 @@ class HackathonController extends GetxController {
   void fetchHackathons() async {
     try {
       final hackathonsList = await Hackathon.fetchHackathons();
+      print("the length of the hackathons is ${hackathonsList.length} ");
       if (hackathonsList.isNotEmpty) {
         hackathons.assignAll(hackathonsList);
       }
