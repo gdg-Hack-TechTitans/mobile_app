@@ -43,8 +43,8 @@ Install my-project with npm
     flutter pub get
     flutter run
 ```
-
-## Screenshots
+### Or download it to you android device:
+ https://drive.google.com/file/d/1z4K1CUV9J9KsBO1fufzK4k3SbAQUifb2/view?usp=sharing
 
 ![App Screenshot](https://drive.google.com/file/d/1OPU3LDH1GFghxxv6lY_rMFlYocqMpe0Z/view?usp=sharing)
 
@@ -52,3 +52,4 @@ Install my-project with npm
 ## 🔗 Links
 [![My github](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/yasseresi)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/korzane-yasser/)
+
